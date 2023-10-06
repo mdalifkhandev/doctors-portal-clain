@@ -7,12 +7,18 @@ const useAdmin=email=>{
     useEffect(()=>{
 
       if(email){
-        fetch(`https://doctors-portal-server-vert-phi.vercel.app/users/admin/${email}`)
+
+
+
+        fetch(`https://doctors-portal-server-kohl-gamma.vercel.app/users/admin/${email}`)
+
+
+
         .then(res=>res.json())
         .then(data=>{
             setisAdmin(data.isAdmin)
             setisadminlogin(false)
-            console.log(data);
+            // console.log(data);
         })
       }
     },[email])

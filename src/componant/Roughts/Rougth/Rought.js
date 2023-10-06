@@ -68,7 +68,7 @@ const roughter = createBrowserRouter([
       {
         path:'/dasbord/payment/:id',
         element:<Payment></Payment>,
-        loader:({params})=> fetch(`https://doctors-portal-server-vert-phi.vercel.app/bookings/${params.id}`)
+        loader:({params})=> fetch(`https://doctors-portal-server-kohl-gamma.vercel.app/bookings/${params.id}`)
       },
     ]
   },{

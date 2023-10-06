@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 const Myappointment = () => {
   const { user } = useContext(AuthContex);
   // console.log(localStorage.getItem('accessToken'));
-  const url = `https://doctors-portal-server-vert-phi.vercel.app/bookings?email=${user?.email}`;
+
+  const url = `https://doctors-portal-server-kohl-gamma.vercel.app/bookings?email=${user?.email}`;
+
   // console.log(url);
   const { data: bookings = [] } = useQuery({
     queryKey: ["bookings", user?.email],

@@ -4,7 +4,9 @@ const useToken = email => {
     const [token, setToken] = useState('');
     useEffect(() => {
         if (email) {
-            fetch(`https://doctors-portal-server-vert-phi.vercel.app/jwt?email=${email}`)
+
+   fetch(`https://doctors-portal-server-kohl-gamma.vercel.app/jwt?email=${email}`)
+
                 .then(res => res.json())
                 .then(data => {
                     if (data.accessToken) {

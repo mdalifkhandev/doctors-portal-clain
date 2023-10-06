@@ -45,7 +45,9 @@ const Signup = () => {
 
 const saveuser=(name,email,password)=>{
   const user={name,email,password}
-  fetch(`https://doctors-portal-server-vert-phi.vercel.app/users`,{
+
+  fetch(`https://doctors-portal-server-kohl-gamma.vercel.app/users`,{
+
     method: 'POST',
     headers: {
         'content-type': 'application/json'
@@ -62,7 +64,13 @@ const saveuser=(name,email,password)=>{
 
 
 // const gettoken = email=>{
+
+//   fetch(`http://localhost:5000/jwt?email=${email}`)
+
+//   fetch(`https://doctors-portal-server-kohl-gamma.vercel.app/jwt?email=${email}`)
+
 //   fetch(`https://doctors-portal-server-vert-phi.vercel.app/jwt?email=${email}`)
+
 //   .then(res=>res.json())
 //   .then(data=>{
 //     if(data.accessToken){

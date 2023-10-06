@@ -6,14 +6,18 @@ const Allusers = () => {
   const { data: users = [],refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(`https://doctors-portal-server-vert-phi.vercel.app/users`);
+
+      const res = await fetch(`https://doctors-portal-server-kohl-gamma.vercel.app/users`);
+
       const data = res.json();
       return data;
     },
   });
 // console.log(localStorage.getItem("accessToken"));
   const hendelmakeadmin = (id) => {
-    fetch(`https://doctors-portal-server-vert-phi.vercel.app/users/admin/${id}`, {
+
+    fetch(`https://doctors-portal-server-kohl-gamma.vercel.app/users/admin/${id}`, {
+
       method: "PUT",
       headers:{
         authorizition:`bearer ${localStorage.getItem("accessToken")}`

@@ -11,10 +11,12 @@ const Cheakoutfrom = ({ data }) => {
   const [success, setSuccess] = useState("");
   const [processing, setProcessing] = useState(false);
   const [transactionId, setTransactionId] = useState("");
-  console.log(data);
+  // console.log(data);
 
   useEffect(() => {
-    fetch("https://doctors-portal-server-vert-phi.vercel.app/create-payment-intent", {
+
+    fetch("https://doctors-portal-server-kohl-gamma.vercel.app/create-payment-intent", {
+
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -70,7 +72,9 @@ const Cheakoutfrom = ({ data }) => {
         email,
         bookingId: _id,
       };
-      fetch("https://doctors-portal-server-vert-phi.vercel.app/payments", {
+
+      fetch("https://doctors-portal-server-kohl-gamma.vercel.app/payments", {
+
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -80,7 +84,7 @@ const Cheakoutfrom = ({ data }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           if (data.insertedId) {
             setSuccess("Congrats! your payment completed");
             setTransactionId(paymentIntent.id);
@@ -89,7 +93,7 @@ const Cheakoutfrom = ({ data }) => {
           }
         });
     }
-    console.log(["payment"], paymentIntent);
+    // console.log(["payment"], paymentIntent);
   };
 
   return (
