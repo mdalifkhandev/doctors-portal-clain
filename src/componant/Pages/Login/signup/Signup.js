@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../../contex/AuthProvider";
 import { toast } from "react-hot-toast";
 import useToken from "../../../Myminycomponent/hokes/usetoken/useToken";
@@ -8,18 +8,20 @@ import useTitle from "../../../Myminycomponent/hokes/usetoken/useTitle";
 
 const Signup = () => {
   useTitle('Signup')
-  const { createuseremailpass, updateuser } = useContext(AuthContex);
+  const { createuseremailpass, updateuser, googlelogin } = useContext(AuthContex);
   const [signuperror, setsignuperror] = useState();
   const navigate = useNavigate();
-  const { register,  formState: { errors },  handleSubmit,  } = useForm();
-  const [createduseremail,setcreateduseremail]=useState('')
-  const [token]=useToken(createduseremail)
-  
-  
-  if(token){
+  const { register, formState: { errors }, handleSubmit, } = useForm();
+  const [createduseremail, setcreateduseremail] = useState('')
+  const [token] = useToken(createduseremail)
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+
+
+  if (token) {
     navigate('/')
   }
-  
+
   // const [createdUserEmail, setCreatedUserEmail] = useState('')
   // const [token] = useToken(createdUserEmail);
 
@@ -34,10 +36,10 @@ const Signup = () => {
           displayName: data.name,
         };
         updateuser(userinfo)
-        .then(() => {
-          saveuser(data.name,data.email,data.password)
-       })
-      .catch(err => console.log(err));
+          .then(() => {
+            saveuser(data.name, data.email, data.password)
+          })
+          .catch(err => console.log(err));
       })
       .catch((error) => {
         console.log(error.message);
@@ -45,35 +47,48 @@ const Signup = () => {
       });
   };
 
-const saveuser=(name,email,password)=>{
-  const user={name,email,password}
-  fetch(`https://doctors-portal-server-kohl-gamma.vercel.app/users`,{
-    method: 'POST',
-    headers: {
+  const saveuser = (name, email, password) => {
+    const user = { name, email, password }
+    fetch(`https://doctors-portal-server-kohl-gamma.vercel.app/users`, {
+      method: 'POST',
+      headers: {
         'content-type': 'application/json'
-    },
-    body: JSON.stringify(user)
-  })
-  .then(res => res.json())
-        .then(data =>{
-            setcreateduseremail(email)
-            toast.success('user successfully created')
-            console.log(data);
-        })
-}
+      },
+      body: JSON.stringify(user)
+    })
+      .then(res => res.json())
+      .then(data => {
+        setcreateduseremail(email)
+        toast.success('user successfully created')
+        console.log(data);
+      })
+  }
 
 
-// const gettoken = email=>{
-//   fetch(`https://doctors-portal-server-kohl-gamma.vercel.app/jwt?email=${email}`)
-//   .then(res=>res.json())
-//   .then(data=>{
-//     if(data.accessToken){
-//       localStorage.setItem('accessToken',data.accessToken)
-//       toast.success('Access token set successfully')
-//       navigate('/')
-//     }
-//   })
-// }
+  // const gettoken = email=>{
+  //   fetch(`https://doctors-portal-server-kohl-gamma.vercel.app/jwt?email=${email}`)
+  //   .then(res=>res.json())
+  //   .then(data=>{
+  //     if(data.accessToken){
+  //       localStorage.setItem('accessToken',data.accessToken)
+  //       toast.success('Access token set successfully')
+  //       navigate('/')
+  //     }
+  //   })
+  // }
+
+  const googleloginpopup = () => {
+    googlelogin()
+      .then((resualt) => {
+        toast.success('Google login successfully')
+        navigate(from, { replace: true });
+        const email = resualt.user.email
+        const name = resualt.user.displayName
+        saveuser(name,email)
+        // console.log(resualt);
+      })
+      .catch((error) => console.log(error));
+  };
 
 
   return (
@@ -150,7 +165,7 @@ const saveuser=(name,email,password)=>{
           </p>
           <div className="divider">OR</div>
         </form>
-        <button className="btn w-full btn-outline ">
+        <button onClick={googleloginpopup} className="btn w-full btn-outline ">
           CONTINUE WITH GOOGLE
         </button>
       </div>

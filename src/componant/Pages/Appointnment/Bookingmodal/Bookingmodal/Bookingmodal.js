@@ -8,7 +8,7 @@ const Bookingmodal = ({ Tretnment, selecteddate, setTretnment, refetch }) => {
   // console.log(Tretnment);
   const date = format(selecteddate, "PP");
   const { user } = useContext(AuthContex);
-  console.log(user.email, user.displayName);
+  // console.log(user.email, user.displayName);
 
   const hendelsubmite = (event) => {
     event.preventDefault();
@@ -37,7 +37,7 @@ const Bookingmodal = ({ Tretnment, selecteddate, setTretnment, refetch }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.acknowledged) {
           setTretnment(null);
           toast.success("Booking confirmed");

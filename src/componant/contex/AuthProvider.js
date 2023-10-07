@@ -21,6 +21,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loding, setloding] = useState(true);
+  const [token, setToken] = useState(null);
 
   const googleprovaider = new GoogleAuthProvider()
   const facebookprovaider = new FacebookAuthProvider()
@@ -75,6 +76,17 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log("user observing");
+      // console.log(currentUser?.email);
+      if (currentUser?.email) {
+        fetch(`https://doctors-portal-server-kohl-gamma.vercel.app/jwt?email=${currentUser.email}`)
+          .then(res => res.json())
+          .then(data => {
+            if (data.accessToken) {
+              localStorage.setItem('accessToken', data.accessToken);
+              setToken(data.accessToken);
+            }
+          });
+      }
       setUser(currentUser);
       setloding(false);
     });
@@ -93,7 +105,8 @@ const AuthProvider = ({ children }) => {
     forgatepassword,
     removeuser,
     googlelogin,
-    facebooklogin
+    facebooklogin,
+    token
   };
   return <AuthContex.Provider value={authinfo}>{children}</AuthContex.Provider>;
 };

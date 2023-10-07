@@ -20,12 +20,42 @@ const Payment = () => {
   // console.log(data);
   return (
     <div className="mx-28">
-      <h1>payment {data.tretnmentname} </h1>
-      <h1>payment {data.pasenname} </h1>
-      <h1>payment {data.appointmentdate} </h1>
-      <h1>payment {data.email} </h1>
-      <h1>payment {data.price} </h1>
-      <h1>payment {data.phone} </h1>
+      <div className="overflow-x-auto">
+  <table className="table my-7">
+    <tbody>
+      <tr>
+        <th>Tretnment Name :</th>
+        <td>{data.tretnmentname}</td>
+      </tr>
+      <tr>
+        <th>Pasenname : </th>
+        <td>{data.pasenname}</td>
+      </tr>
+      <tr>
+        <th>Appointment Date : </th>
+        <td>{data.appointmentdate}</td>
+      </tr>
+      <tr>
+        <th>E-mail :</th>
+        <td>{data.email}</td>
+      </tr>
+      <tr>
+        <th>Price :</th>
+        <td>$ {data.price}</td>
+      </tr>
+      <tr>
+        <th>Mobile Number :</th>
+        <td>{data.phone}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+      {/* <h1>Tretnment Name : {data.tretnmentname} </h1>
+      <h1>Pasenname : {data.pasenname} </h1>
+      <h1>Appointment Date : {data.appointmentdate} </h1>
+      <h1>E-mail : {data.email} </h1>
+      <h1>Price : {data.price} </h1>
+      <h1>Mobile Number : {data.phone} </h1> */}
       <div>
         <Elements className="w-96 my-10" stripe={stripePromise}>
           <Cheakoutfrom

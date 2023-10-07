@@ -13,7 +13,7 @@ const Cheakoutfrom = ({ data }) => {
   const [success, setSuccess] = useState("");
   const [processing, setProcessing] = useState(false);
   const [transactionId, setTransactionId] = useState("");
-  console.log(data);
+  // console.log(data);
 
   useEffect(() => {
     fetch("https://doctors-portal-server-kohl-gamma.vercel.app/create-payment-intent", {

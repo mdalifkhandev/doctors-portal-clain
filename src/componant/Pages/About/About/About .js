@@ -16,10 +16,10 @@ export default function About() {
             <div className='grid gap-4'>
                 <h1 className='text-3xl font-bold '>Contact  Us</h1>
                 <Link target='_blank' className='link-primary  text-5xl' to='https://www.facebook.com/mdalifkhan2021'>
-                    <FaFacebook/>
+                    <FaFacebook />
                 </Link>
                 <Link target='_blank' className='link-primary text-5xl ' to='https://www.linkedin.com/in/alif-khan-5a81ba22a/'>
-                <FaLinkedin/>
+                    <FaLinkedin />
                 </Link>
                 <h1>Email : mdalifk2002@gmail.com</h1>
             </div>

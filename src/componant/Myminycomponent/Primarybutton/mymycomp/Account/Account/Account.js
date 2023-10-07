@@ -10,6 +10,7 @@ const Account = () => {
   console.log(user.emailVerified);
   const handlelogout = () => {
     toast.success("User Logout successfully");
+    localStorage.removeItem('accessToken')
     logout()
       .then((resualt) => {
         console.log(resualt.user.emailVerified);
@@ -34,26 +35,26 @@ const Account = () => {
   };
 
   return (
-    <div>
+    <div className="flex gap-10 items-center my-20">
       <h1>{user.email}</h1>
 
-      <li>
+      
         <button onClick={handlelogout} className="btn btn-primary">
           Sign out
         </button>
-      </li>
+      
       {user?.emailVerified ? (
-        <li>
+        
           <button className="btn btn-disabled text-green-600">
             Your Email Verifide
           </button>
-        </li>
+        
       ) : (
-        <li>
+        
           <button onClick={emailverifacation} className="btn btn-primary">
             Email Verifecation
           </button>
-        </li>
+        
       )}
 
       <button onClick={deletedeuser} className="btn btn-warning">

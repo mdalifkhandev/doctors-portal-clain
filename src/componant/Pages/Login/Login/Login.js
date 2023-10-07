@@ -10,16 +10,16 @@ const Login = () => {
   useTitle('Login')
   const { signin, googlelogin } = useContext(AuthContex);
   const [loginError, setLoginError] = useState("");
-  const {register,formState: { errors }, handleSubmit,} = useForm();
+  const { register, formState: { errors }, handleSubmit, } = useForm();
   const location = useLocation();
   const navigate = useNavigate();
-  const [loginuseremail,setloginuseremail]=useState('')
-  const [token]=useToken(loginuseremail)
-
+  const [loginuseremail, setloginuseremail] = useState('')
+  const [token] = useToken(loginuseremail)
+  console.log(token);
   const from = location?.state?.from?.pathname || "/";
-if(token){
-  navigate(from, { replace: true });
-}
+  if (token) {
+    navigate(from, { replace: true });
+  }
   // const [data, setData] = useState("");
   const hendellogins = (data) => {
     console.log(data);
@@ -36,12 +36,32 @@ if(token){
       });
   };
 
+  const saveuser = (name, email) => {
+    const user = { name, email }
+    fetch(`https://doctors-portal-server-kohl-gamma.vercel.app/users`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+      .then(res => res.json())
+      .then(data => {
+        setloginuseremail(email)
+        toast.success('Login successfully')
+        console.log(data);
+      })
+  }
+
   const googleloginpopup = () => {
     googlelogin()
       .then((resualt) => {
         toast.success('Google login successfully')
         navigate(from, { replace: true });
-        console.log(resualt);
+        const email = resualt.user.email
+        const name = resualt.user.displayName
+        saveuser(name, email)
+        // console.log(resualt.user.displayName);
       })
       .catch((error) => console.log(error));
   };
