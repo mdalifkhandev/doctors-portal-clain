@@ -83,7 +83,7 @@ const roughter = createBrowserRouter([
     ]
   },{
     path:'/forgatepassword',
-    element:<Privaterought><Forgatepassword></Forgatepassword></Privaterought>
+    element:<Forgatepassword></Forgatepassword>
   }
 ]);
 

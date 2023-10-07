@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { AuthContex } from "../../../../../contex/AuthProvider";
 import { toast } from "react-hot-toast";
+import useTitle from "../../../../hokes/usetoken/useTitle";
 
 const Account = () => {
+  useTitle('Your Profile')
   const { user, logout, emailvaryfication, removeuser } =
     useContext(AuthContex);
   console.log(user.emailVerified);

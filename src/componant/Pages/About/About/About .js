@@ -2,11 +2,14 @@ import React from 'react'
 import love from '../../../assets/images/download.jpg'
 import { Link } from 'react-router-dom'
 import { FaFacebook, FaLinkedin } from 'react-icons/fa';
+import useTitle from '../../../Myminycomponent/hokes/usetoken/useTitle';
 
 export default function About() {
+    useTitle('About')
     return (
         <div>
             <div className='grid items-center justify-center'>
+                <h1>This is doctors protal servis</h1>
                 <img alt='' className="mask mask-heart" src={love} />
 
             </div>

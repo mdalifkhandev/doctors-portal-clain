@@ -3,8 +3,10 @@ import Naveber from "../../share/navebar/Naveber";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContex } from "../../../contex/AuthProvider";
 import useAdmin from "../../../Myminycomponent/hokes/usetoken/useAdmin";
+import useTitle from "../../../Myminycomponent/hokes/usetoken/useTitle";
 
 const Dasbotdlayout = () => {
+  useTitle('Dasbord')
   const {user}=useContext(AuthContex)
   const [isAdmin]=useAdmin(user?.email)
   return (

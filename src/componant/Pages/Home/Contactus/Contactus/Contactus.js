@@ -21,7 +21,8 @@ const Contactus = () => {
         <br /><br />
         <textarea className="textarea textarea-bordered w-full" placeholder="Comment"></textarea>
         
-       <Primarybutton className='mt-10'>submite</Primarybutton>
+       <Primarybutton className='mt-10'>submit
+</Primarybutton>
         </div>
        </div>
         

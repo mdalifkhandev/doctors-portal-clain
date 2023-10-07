@@ -1,8 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import toast from "react-hot-toast";
+import useTitle from "../../../Myminycomponent/hokes/usetoken/useTitle";
 
 const Allusers = () => {
+  useTitle('All Users')
   const { data: users = [],refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {

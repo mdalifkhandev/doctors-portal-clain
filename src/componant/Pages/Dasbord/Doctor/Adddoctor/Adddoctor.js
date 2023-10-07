@@ -4,8 +4,10 @@ import { useForm } from "react-hook-form";
 import Loding from "../../../../Myminycomponent/loding/Loding";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import useTitle from "../../../../Myminycomponent/hokes/usetoken/useTitle";
 
 const Adddoctor = () => {
+  useTitle('Add Doctor')
   const {
     register,
     handleSubmit,
@@ -142,7 +144,8 @@ const navigate=useNavigate()
         <br />
         <input
           type="submit"
-          value="submit"
+          value="submit
+          "
           className="btn btn-primary w-full"
         />
       </form>

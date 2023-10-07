@@ -4,8 +4,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../../contex/AuthProvider";
 import { toast } from "react-hot-toast";
 import useToken from "../../../Myminycomponent/hokes/usetoken/useToken";
+import useTitle from "../../../Myminycomponent/hokes/usetoken/useTitle";
 
 const Login = () => {
+  useTitle('Login')
   const { signin, googlelogin } = useContext(AuthContex);
   const [loginError, setLoginError] = useState("");
   const {register,formState: { errors }, handleSubmit,} = useForm();
@@ -92,7 +94,7 @@ if(token){
 
           {/* <p>{data}</p> */}
           <br />
-          <Link to="/forgatepassword">Forgate Password</Link>
+          <Link to="/forgatepassword">Forgot password</Link>
           <br />
           {loginError && <p className="text-red-600">{loginError}</p>}
           <br />

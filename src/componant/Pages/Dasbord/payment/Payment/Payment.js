@@ -4,12 +4,14 @@ import React from "react";
 import { useLoaderData, useNavigation } from "react-router-dom";
 import Cheakoutfrom from "../Cheakout/Cheakoutfrom";
 import Loding from '../../../../Myminycomponent/loding/Loding'
+import useTitle from "../../../../Myminycomponent/hokes/usetoken/useTitle";
 
 // const stripePromise = loadStripe('pk_test_51NrtkkG1p3nVEVTLlIhN9JauWDQ4WVtWQ7GTOSj5wjMyrQjjQ7NMU5KyiRYJ3HKn2xXRQU0D9RLyBbdU5LjkKmSb00fo9FLHfW');
 const stripePromise = loadStripe(process.env.REACT_APP_styrip_pk);
 console.log(stripePromise);
 
 const Payment = () => {
+  useTitle('Payment')
   const data = useLoaderData();
   const navigation=useNavigation()
   if(navigation.state==='loading'){

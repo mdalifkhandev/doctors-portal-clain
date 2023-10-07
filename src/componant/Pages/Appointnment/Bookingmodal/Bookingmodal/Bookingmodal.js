@@ -3,8 +3,8 @@ import { format } from "date-fns";
 import { AuthContex } from "../../../../contex/AuthProvider";
 import toast from "react-hot-toast";
 
-const Bookingmodal = ({ Tretnment, selecteddate, setTretnment ,refetch}) => {
-  const { name, slots ,price} = Tretnment;
+const Bookingmodal = ({ Tretnment, selecteddate, setTretnment, refetch }) => {
+  const { name, slots, price } = Tretnment;
   // console.log(Tretnment);
   const date = format(selecteddate, "PP");
   const { user } = useContext(AuthContex);
@@ -19,7 +19,7 @@ const Bookingmodal = ({ Tretnment, selecteddate, setTretnment ,refetch}) => {
     const time = from.slot.value;
     const tretnmentname = name;
     const bookingdata = {
-      appointmentdate:date,
+      appointmentdate: date,
       tretnmentname,
       time,
       pasenname,
@@ -34,7 +34,7 @@ const Bookingmodal = ({ Tretnment, selecteddate, setTretnment ,refetch}) => {
         'content-type': 'application/json'
       },
       body: JSON.stringify(bookingdata)
-  })
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -106,12 +106,12 @@ const Bookingmodal = ({ Tretnment, selecteddate, setTretnment ,refetch}) => {
             <input
               className="w-full btn btn-accent"
               type="submit"
-              value={`Submit $ ${price}`}
+              value={`submit $ ${price}`}
             />
           </form>
-        <label className="modal-backdrop" htmlFor="bookingmodal">
-          Close
-        </label>
+          <label className="modal-backdrop" htmlFor="bookingmodal">
+            Close
+          </label>
         </div>
       </div>
     </>

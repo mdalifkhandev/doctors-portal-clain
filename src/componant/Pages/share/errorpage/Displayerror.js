@@ -2,8 +2,10 @@ import React, { useContext } from 'react';
 import { useNavigate, useRouteError } from 'react-router-dom';
 import { AuthContex } from '../../../contex/AuthProvider';
 import toast from 'react-hot-toast';
+import useTitle from '../../../Myminycomponent/hokes/usetoken/useTitle';
 
 const Displayerror = () => {
+    useTitle('Login or Reload')
     const {logout}=useContext(AuthContex)
     const error=useRouteError();
     const navigate=useNavigate()

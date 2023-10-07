@@ -6,8 +6,10 @@ import Tretnment from '../Tretnment/Tretnment/Tretnment';
 import Appointnment from '../MakeAppointnment/Appointnment/Appointnment';
 import Testimonialheader from '../Testimonial/Testimonialheader/Testimonialheader';
 import Contactus from '../Contactus/Contactus/Contactus';
+import useTitle from '../../../Myminycomponent/hokes/usetoken/useTitle';
 
 const Home  = () => {
+    useTitle('Doctors protal Home')
     return (
         <div className='mx-5'>
             <Banner></Banner>

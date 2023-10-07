@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import { AuthContex } from "../../../contex/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
+import useTitle from "../../../Myminycomponent/hokes/usetoken/useTitle";
 
 const Myappointment = () => {
+  useTitle('Your Appointment')
   const { user } = useContext(AuthContex);
   // console.log(localStorage.getItem('accessToken'));
   const url = `https://doctors-portal-server-kohl-gamma.vercel.app/bookings?email=${user?.email}`;

@@ -1,8 +1,10 @@
 import React from 'react'
 import Testimonialmaincard from '../../Home/Testimonial/Testimonialcard/Testimonialmaincard/Testimonialmaincard'
 import quote from '../../../assets/icons/quote.svg'
+import useTitle from '../../../Myminycomponent/hokes/usetoken/useTitle'
 
 export default function Review() {
+    useTitle('Review')
   return (
     <div className='my-5'>
      <section className='mt-12'> 

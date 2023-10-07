@@ -49,7 +49,7 @@ const Naveber = () => {
        {menuitems}
       </ul>
     </div>
-    <Link className="btn btn-ghost normal-case text-xl">Doctors Portal</Link>
+    <Link to='/' className="btn btn-ghost normal-case text-xl">Doctors Portal</Link>
   </div>
   <div className="navbar-end hidden lg:flex">
     <ul className="menu menu-horizontal px-1">

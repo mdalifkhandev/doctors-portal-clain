@@ -1,6 +1,8 @@
 import React from "react";
+import useTitle from "../../../../../Myminycomponent/hokes/usetoken/useTitle";
 
 const AvailabailAppointnmentoption = ({ option, setTretnment }) => {
+  useTitle('Appointnment')
   const { name, slots ,price} = option;
   return (
     <div>

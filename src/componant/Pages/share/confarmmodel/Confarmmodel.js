@@ -1,6 +1,8 @@
 import React from "react";
+import useTitle from "../../../Myminycomponent/hokes/usetoken/useTitle";
 
 const Confarmmodel = ({message,titel,data,deleteddoctors}) => {
+  useTitle('Confarmmodel')
     // console.log(data,deleteddoctors);
   return (
     <div>

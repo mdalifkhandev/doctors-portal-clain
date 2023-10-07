@@ -1,8 +1,10 @@
 import React from "react";
 import chair from "../../../assets/images/chair.png";
 import { DayPicker } from "react-day-picker";
+import useTitle from "../../../Myminycomponent/hokes/usetoken/useTitle";
 
 const Appointnmentbanner = ({ setSelecteddate, selecteddate }) => {
+  useTitle('Appointnmentbanner')
   return (
     <section>
       <div className="hero">

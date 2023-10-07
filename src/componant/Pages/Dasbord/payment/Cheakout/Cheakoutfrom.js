@@ -1,8 +1,10 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import useTitle from "../../../../Myminycomponent/hokes/usetoken/useTitle";
 
 const Cheakoutfrom = ({ data }) => {
+  useTitle('Cheak Out')
   const stripe = useStripe();
   const elements = useElements();
   const [errorss, seterrorss] = useState(" ");

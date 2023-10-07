@@ -4,8 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../../contex/AuthProvider";
 import { toast } from "react-hot-toast";
 import useToken from "../../../Myminycomponent/hokes/usetoken/useToken";
+import useTitle from "../../../Myminycomponent/hokes/usetoken/useTitle";
 
 const Signup = () => {
+  useTitle('Signup')
   const { createuseremailpass, updateuser } = useContext(AuthContex);
   const [signuperror, setsignuperror] = useState();
   const navigate = useNavigate();

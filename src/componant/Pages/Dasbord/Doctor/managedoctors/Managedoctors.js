@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import Loding from "../../../../Myminycomponent/loding/Loding";
 import Confarmmodel from "../../../share/confarmmodel/Confarmmodel";
 import toast from "react-hot-toast";
+import useTitle from "../../../../Myminycomponent/hokes/usetoken/useTitle";
 
 const Managedoctors = () => {
+  useTitle('All Doctor')
   const [doctordeletmodel, setdoctordeletmodel] = useState(null);
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["/doctors"],

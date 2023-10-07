@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContex } from "../../../../contex/AuthProvider";
+import useTitle from "../../../../Myminycomponent/hokes/usetoken/useTitle";
 
 const Forgatepassword = () => {
+  useTitle('Forgot password')
     const {forgatepassword}=useContext(AuthContex)
     const {
         register,
