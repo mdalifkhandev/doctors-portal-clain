@@ -15,6 +15,8 @@ import Adddoctor from "../../Pages/Dasbord/Doctor/Adddoctor/Adddoctor";
 import Managedoctors from "../../Pages/Dasbord/Doctor/managedoctors/Managedoctors";
 import Payment from "../../Pages/Dasbord/payment/Payment/Payment";
 import Displayerror from "../../Pages/share/errorpage/Displayerror";
+import Review from "../../Pages/review/Review/Review";
+import About from "../../Pages/About/About/About ";
 
 const roughter = createBrowserRouter([
   {
@@ -35,8 +37,16 @@ const roughter = createBrowserRouter([
         element: <Signup></Signup>
       },
       {
+        path: "/about",
+        element: <About></About>
+      },
+      {
         path: "/appointnment",
         element: <Privaterought><Appointnment></Appointnment></Privaterought>,
+      },
+      {
+        path: "/review",
+        element: <Privaterought><Review></Review></Privaterought>,
       },
       {
         path:'/account',
